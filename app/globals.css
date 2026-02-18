@@ -1,0 +1,66 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+    font-family:
+        -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+        'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+        sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    --bg-dark: #0f1113;
+    --card: #111417;
+    --text: #e6e1d9;
+    --muted: #a8a29e;
+    --gold: #c9a752;
+    --accent: #2b2f36;
+
+    background: linear-gradient(180deg, #09090b 0%, #0f1113 60%);
+    color: var(--text);
+    min-height: 100vh;
+}
+
+button {
+    cursor: pointer;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.6);
+}
+
+input,
+select {
+    padding: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 8px;
+    font-size: 16px;
+    color: var(--text);
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+input:focus,
+select:focus {
+    outline: none;
+    border-color: rgba(201, 167, 82, 0.9);
+    box-shadow: 0 6px 20px rgba(201, 167, 82, 0.06);
+}
+
+input::placeholder {
+    color: var(--muted);
+    font-style: italic;
+}

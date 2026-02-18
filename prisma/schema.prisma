@@ -1,0 +1,42 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model User {
+  id        Int     @id @default(autoincrement())
+  name      String  @unique
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  measurements   Measurement[]
+}
+
+model Measurement {
+  id        Int     @id @default(autoincrement())
+  userId    Int
+  user      User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  // Skinfold measurements (in mm)
+  triceps   Float?
+  biceps    Float?
+  chest     Float?
+  midaxillary Float?
+  subscapular Float?
+  suprailiac Float?
+  abdominal Float?
+  thigh     Float?
+
+  // Calculated results
+  bodyFatPercentage Float?
+  method    String    @default("skinfold") // e.g., "skinfold", "navy", "bmi"
+  
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
